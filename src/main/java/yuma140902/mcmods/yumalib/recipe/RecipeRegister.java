@@ -1,4 +1,4 @@
-package yuma140902.mcmods.yumalib.registry;
+package yuma140902.mcmods.yumalib.recipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
