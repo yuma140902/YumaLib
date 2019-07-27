@@ -8,7 +8,7 @@ public class GenericRegistry<T> {
 	
 	protected List<T> list = new ArrayList<>();
 	
-	public void add(T item) {
+	public void register(T item) {
 		list.add(item);
 	}
 	
