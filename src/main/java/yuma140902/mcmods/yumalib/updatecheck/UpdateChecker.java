@@ -7,7 +7,9 @@ import net.minecraft.util.StatCollector;
 import yuma140902.mcmods.yumalib.network.HttpUtil;
 
 /**
- * Checks updates by downloading release catalog TSV file from specified url
+ * Checks updates by downloading release catalog TSV file from specified url <br>
+ * Register the instance to {@link UpdateNotifierRegistry#INSTANCE} for update notification <br>
+ * You should run {@link #checkForUpdates} manually (normally in preInit method)
  * @author yuma140902
  *
  */
