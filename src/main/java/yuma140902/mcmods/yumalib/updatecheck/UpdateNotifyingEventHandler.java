@@ -4,7 +4,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.server.CommandMessageRaw;
 import net.minecraft.server.integrated.IntegratedServer;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.world.WorldEvent;
 
 /**
@@ -15,9 +14,9 @@ import net.minecraftforge.event.world.WorldEvent;
  */
 public class UpdateNotifyingEventHandler {
 	
-	private final UpdateChecker updateChecker;
+	private final IUpdateChecker updateChecker;
 	
-	public UpdateNotifyingEventHandler(UpdateChecker updateChecker) {
+	public UpdateNotifyingEventHandler(IUpdateChecker updateChecker) {
 		this.updateChecker = updateChecker;
 	}
 	
@@ -36,7 +35,7 @@ public class UpdateNotifyingEventHandler {
 				return;
 			}
 			
-			String msgRaw = StatCollector.translateToLocalFormatted("text.yumalib.update_notify", updateChecker.getModDisplayName(), updateChecker.getAvailableNewVersion(), updateChecker.getNewVersionUrl());
+			String msgRaw = updateChecker.getNotificationMessageForChatGui();
 			new CommandMessageRaw().processCommand(integratedServer, new String[] {"@a", msgRaw});
 			
 			hasNotifiedAboutUpdate = true;
