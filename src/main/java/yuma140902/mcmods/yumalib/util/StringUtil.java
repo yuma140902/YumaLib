@@ -1,0 +1,14 @@
+package yuma140902.mcmods.yumalib.util;
+
+public class StringUtil {
+	private StringUtil() {}
+	
+	public static String surfix(String sep, String value) {
+		return value.isEmpty() ? "" : sep + value;
+	}
+	
+	public static String prefix(String value, String sep) {
+		return value.isEmpty() ? "" : value + sep;
+	}
+
+}
