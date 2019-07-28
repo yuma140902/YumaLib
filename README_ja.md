@@ -5,7 +5,7 @@
 [![Forge 10.13.4.1558](https://img.shields.io/badge/Forge-10.13.4.1558-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 [![Forge 10.13.4.1614](https://img.shields.io/badge/Forge-10.13.4.1614-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 
-Library for yuma140902' mods
+Library for yuma140902's mods
 
 **Minecraftバージョン** : `1.7.10` \
 **前提Mod** : Forge (Developed with  `10.13.4.1558`, checked with `10.13.4.1558` and `10.13.4.1614`) \
