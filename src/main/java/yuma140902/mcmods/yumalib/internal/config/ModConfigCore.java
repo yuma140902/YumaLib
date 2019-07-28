@@ -61,7 +61,7 @@ public class ModConfigCore {
 		
 		key = "Check for updates";
 		order.add(key);
-		Property doUpdateCheck = cfg.get(CATEGORY_GENERAL, key, true, "If true, the mod will check for updates automatically");
+		Property doUpdateCheck = cfg.get(CATEGORY_GENERAL, key, false, "If true, the mod will check for updates automatically");
 		Stats._doUpdateCheck = doUpdateCheck.getBoolean();
 		
 		key = "Update Channel";

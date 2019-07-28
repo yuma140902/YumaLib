@@ -61,14 +61,16 @@ public class YumaLib {
 		ModConfigCore.loadConfig(event);
 		
 		updateChecker = new UpdateChecker(MOD_NAME, MOD_VERSIONS_TSV_URL, ModConfigCore.Stats.updateChannel(), MOD_VERSION, modMetadata.url, ModConfigCore.Stats.isDebugMode());
-		try {
-			updateChecker.checkForUpdates();
+		if(ModConfigCore.Stats.doUpdateCheck()) {
+			try {
+				updateChecker.checkForUpdates();
+			}
+			catch (Exception e) {
+				LOGGER.warn(e);
+			}
+			LOGGER.info(updateChecker.hasNewVersionAvailable() ? "There is a new version available. - v" + updateChecker.getAvailableNewVersion() + ". Visit " + updateChecker.getNewVersionUrl() : MOD_NAME + " is now up-to-date.");
+			YumaLibApi.registerUpdateChecker(updateChecker);
 		}
-		catch (Exception e) {
-			LOGGER.warn(e);
-		}
-		LOGGER.info(updateChecker.hasNewVersionAvailable() ? "There is a new version available. - v" + updateChecker.getAvailableNewVersion() + ". Visit " + updateChecker.getNewVersionUrl() : MOD_NAME + " is now up-to-date.");
-		YumaLibApi.registerUpdateChecker(updateChecker);
 		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
