@@ -13,8 +13,8 @@ public class ModConfigCore {
 	public static final String CATEGORY_GENERAL = "General";
 	
 	public static final String
-		CONFIG_PROP_LANGKEY = "config.uptodate.prop.",
-		CONFIG_CATEGORY_LANGKEY = "config.uptodate.category.";
+		CONFIG_PROP_LANGKEY = "config.yumalib.prop.",
+		CONFIG_CATEGORY_LANGKEY = "config.yumalib.category.";
 	
 	public static Configuration cfg;
 	
