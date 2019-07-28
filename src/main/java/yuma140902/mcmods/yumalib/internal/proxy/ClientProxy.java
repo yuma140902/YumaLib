@@ -9,8 +9,8 @@ import net.minecraft.command.server.CommandMessageRaw;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.WorldEvent;
+import yuma140902.mcmods.yumalib.YumaLibApi;
 import yuma140902.mcmods.yumalib.updatecheck.IUpdateChecker;
-import yuma140902.mcmods.yumalib.updatecheck.UpdateNotifierRegistry;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -40,7 +40,7 @@ public class ClientProxy extends CommonProxy {
 			
 			hasNotifiedAboutUpdate = true;
 			
-			Iterator<IUpdateChecker> iterator = UpdateNotifierRegistry.INSTANCE.iterator();
+			Iterator<IUpdateChecker> iterator = YumaLibApi.getUpdateNotifierRegistry().iterator();
 			while (iterator.hasNext()) {
 				IUpdateChecker updateChecker = iterator.next();
 				
