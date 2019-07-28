@@ -8,12 +8,16 @@ import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.Side;
 import yuma140902.mcmods.yumalib.internal.YumaLibStat;
 import yuma140902.mcmods.yumalib.internal.config.ModConfigCore;
 import yuma140902.mcmods.yumalib.internal.proxy.CommonProxy;
+import yuma140902.mcmods.yumalib.network.NoteBlockPlayHandler;
+import yuma140902.mcmods.yumalib.network.NoteBlockPlayMessage;
 import yuma140902.mcmods.yumalib.updatecheck.EnumUpdateChannel;
 import yuma140902.mcmods.yumalib.updatecheck.UpdateChecker;
-import yuma140902.mcmods.yumalib.updatecheck.UpdateNotifierRegistry;
 
 @Mod(modid = YumaLib.MOD_ID, name = YumaLib.MOD_NAME, version = YumaLib.MOD_VERSION, useMetadata = true, guiFactory = YumaLibStat.MOD_CONFIG_GUI_FACTORY)
 public class YumaLib {
@@ -34,6 +38,8 @@ public class YumaLib {
 	
 	@SidedProxy(clientSide = YumaLibStat.PROXY_CLIENT, serverSide = YumaLibStat.PROXY_SERVER)
 	public static CommonProxy proxy;
+	
+	public static SimpleNetworkWrapper networkWrapper;
 	
 	private UpdateChecker updateChecker;
 	public UpdateChecker getUpdateChecker() {
@@ -63,8 +69,10 @@ public class YumaLib {
 			LOGGER.warn(e);
 		}
 		LOGGER.info(updateChecker.hasNewVersionAvailable() ? "There is a new version available. - v" + updateChecker.getAvailableNewVersion() + ". Visit " + updateChecker.getNewVersionUrl() : MOD_NAME + " is now up-to-date.");
-		UpdateNotifierRegistry.INSTANCE.add(updateChecker);
+		YumaLibApi.registerUpdateChecker(updateChecker);
 		
+		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
+		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
 	}
 	
 	@EventHandler
