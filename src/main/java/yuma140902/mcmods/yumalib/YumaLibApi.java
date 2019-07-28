@@ -1,5 +1,8 @@
 package yuma140902.mcmods.yumalib;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import yuma140902.mcmods.yumalib.internal.fluid.FillBucketHandler;
 import yuma140902.mcmods.yumalib.registry.GenericRegistry;
 import yuma140902.mcmods.yumalib.registry.IReadOnlyIdRegistry;
 import yuma140902.mcmods.yumalib.registry.IReadOnlyRegistry;
@@ -35,5 +38,9 @@ public class YumaLibApi {
 	
 	public static void registerNoteBlockInstrument(INoteBlockInstrument noteBlockInstrument) {
 		noteBlockInstrumentReg.register(noteBlockInstrument);
+	}
+	
+	public static void registerCustomBucket(Block blockFluid, Item bucket) {
+		FillBucketHandler.INSTANCE.registerCustomBucket(blockFluid, bucket);
 	}
 }

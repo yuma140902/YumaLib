@@ -5,10 +5,12 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.mcmods.yumalib.YumaLib;
 import yuma140902.mcmods.yumalib.YumaLibApi;
 import yuma140902.mcmods.yumalib.internal.config.ModConfigCore;
+import yuma140902.mcmods.yumalib.internal.fluid.FillBucketHandler;
 import yuma140902.mcmods.yumalib.network.NoteBlockPlayMessage;
 import yuma140902.mcmods.yumalib.sounds.INoteBlockInstrument;
 
@@ -16,6 +18,11 @@ public class CommonEventHandler {
 	private CommonEventHandler() {}
 	
 	public static final CommonEventHandler INSTANCE = new CommonEventHandler();
+	
+	@SubscribeEvent
+	public void onFillBucket(FillBucketEvent event) {
+		FillBucketHandler.INSTANCE.onFillBucket(event);
+	}
 	
 	@SubscribeEvent
 	public void onNoteBlockPlay(NoteBlockEvent.Play event) {
