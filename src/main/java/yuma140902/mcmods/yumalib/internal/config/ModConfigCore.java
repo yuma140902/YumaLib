@@ -46,7 +46,7 @@ public class ModConfigCore {
 	
 	private static void initConfig() {
 		// General
-		cfg.addCustomCategoryComment(CATEGORY_GENERAL, "Settings of UpToDateMod");
+		cfg.addCustomCategoryComment(CATEGORY_GENERAL, "Settings of YumaLib");
 		cfg.setCategoryLanguageKey(CATEGORY_GENERAL, CONFIG_CATEGORY_LANGKEY + "general");
 		cfg.setCategoryRequiresMcRestart(CATEGORY_GENERAL, true);
 	}
