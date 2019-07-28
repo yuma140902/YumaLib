@@ -16,7 +16,6 @@ import yuma140902.mcmods.yumalib.internal.config.ModConfigCore;
 import yuma140902.mcmods.yumalib.internal.proxy.CommonProxy;
 import yuma140902.mcmods.yumalib.network.NoteBlockPlayHandler;
 import yuma140902.mcmods.yumalib.network.NoteBlockPlayMessage;
-import yuma140902.mcmods.yumalib.updatecheck.EnumUpdateChannel;
 import yuma140902.mcmods.yumalib.updatecheck.UpdateChecker;
 
 @Mod(modid = YumaLib.MOD_ID, name = YumaLib.MOD_NAME, version = YumaLib.MOD_VERSION, useMetadata = true, guiFactory = YumaLibStat.MOD_CONFIG_GUI_FACTORY)
@@ -61,7 +60,7 @@ public class YumaLib {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		
-		updateChecker = new UpdateChecker(MOD_NAME, MOD_VERSIONS_TSV_URL, EnumUpdateChannel.Recommended, MOD_VERSION, "https://www.google.com", false);
+		updateChecker = new UpdateChecker(MOD_NAME, MOD_VERSIONS_TSV_URL, ModConfigCore.Stats.updateChannel(), MOD_VERSION, "https://www.google.com", ModConfigCore.Stats.isDebugMode());
 		try {
 			updateChecker.checkForUpdates();
 		}
