@@ -1,19 +1,8 @@
 package yuma140902.mcmods.yumalib.updatecheck;
 
 public enum EnumUpdateChannel {
-	Recommended("recommended"),
-	Latest("latest"); 
-	
-	private String str;
-
-	private EnumUpdateChannel(String str) {
-		this.str = str;
-	}
-	
-	@Override
-	public String toString() {
-		return str;
-	}
+	recommended,
+	latest; 
 	
 	public static String[] valueStrings() {
 		String[] list = new String[values().length];

@@ -66,7 +66,7 @@ public class ModConfigCore {
 		
 		key = "Update Channel";
 		order.add(key);
-		Property updateChannel = cfg.get(CATEGORY_GENERAL, key, EnumUpdateChannel.Recommended.toString(), 
+		Property updateChannel = cfg.get(CATEGORY_GENERAL, key, EnumUpdateChannel.recommended.toString(), 
 				"Channel of update checking", EnumUpdateChannel.valueStrings());
 		Stats._updateChannel = updateChannel.getString();
 		
