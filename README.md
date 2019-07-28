@@ -14,7 +14,7 @@ Library for yuma140902's mods
 
 ## Links
 
-
+ - CurseForge: https://www.curseforge.com/minecraft/mc-mods/yumalib
 
 
 ## License
