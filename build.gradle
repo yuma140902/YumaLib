@@ -18,8 +18,8 @@ buildscript {
 apply plugin: 'forge'
 
 version = "mc1.7.10-0.0.0"
-group= "yuma140902.modnamehere" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "ModNameHere"
+group= "yuma140902.mcmods.yumalib" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "YumaLib"
 
 minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
