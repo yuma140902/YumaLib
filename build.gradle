@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "mc1.7.10-0.0.0"
+version = "mc1.7.10-0.0.1"
 group= "yuma140902.mcmods.yumalib" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "YumaLib"
 
